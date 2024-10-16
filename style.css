@@ -153,8 +153,6 @@ h1 {
     color: #f96b00;
 }
 
-
-
 /* Money Ladder Styling */
 .money-ladder {
     width: 25%;
@@ -209,4 +207,48 @@ h1 {
 
 .footer-button:hover {
     background-color: #ffbe00;
+}
+
+/* Animations for Correct and Wrong Answers */
+.correct-animation {
+    animation: correctFlash 1s ease;
+}
+
+.wrong-animation {
+    animation: wrongShake 1s ease;
+}
+
+@keyframes correctFlash {
+    0% {
+        background-color: #00264d;
+    }
+
+    50% {
+        background-color: #28a745;
+        color: white;
+    }
+
+    100% {
+        background-color: #00264d;
+    }
+}
+
+@keyframes wrongShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
 }

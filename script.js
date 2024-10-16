@@ -77,24 +77,34 @@ function loadQuestion() {
 options.forEach(option => {
     option.addEventListener('click', (event) => {
         if (event.target.dataset.answer === 'correct') {
-            score += 100;  // Increment score by 100 for each correct answer
-            correctAnswers++;
-            correctAnswersElement.textContent = correctAnswers;
-            scoreElement.textContent = score;
+            event.target.classList.add('correct-animation');
+            setTimeout(() => {
+                event.target.classList.remove('correct-animation');
 
-            currentQuestion++;
-            if (currentQuestion < moneyLadder.length) {
-                loadQuestion();
-                currentQuestionElement.textContent = currentQuestion + 1;
-            } else {
-                alert('Congratulations! You completed the quiz.');
-                resetGame();
-            }
+                // Update score and proceed to the next question
+                score += 100;  // Increment score by 100 for each correct answer
+                correctAnswers++;
+                correctAnswersElement.textContent = correctAnswers;
+                scoreElement.textContent = score;
+
+                currentQuestion++;
+                if (currentQuestion < moneyLadder.length) {
+                    loadQuestion();
+                    currentQuestionElement.textContent = currentQuestion + 1;
+                } else {
+                    alert('Congratulations! You completed the quiz.');
+                    resetGame();
+                }
+            }, 1000);
         } else {
-            alert('Wrong answer. Try again!');
+            event.target.classList.add('wrong-animation');
+            setTimeout(() => {
+                event.target.classList.remove('wrong-animation');
+            }, 1000);
         }
     });
 });
+
 
 function resetGame() {
     currentQuestion = 0;
