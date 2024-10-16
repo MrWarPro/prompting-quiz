@@ -8,6 +8,7 @@ const totalQuestionsElement = document.getElementById('total-questions');
 let currentQuestion = 0;
 let score = 0;
 let correctAnswers = 0;
+let hasAnswered = false;
 
 let moneyLadder = [
     {
@@ -72,20 +73,26 @@ function loadQuestion() {
         option.textContent = questionData.options[index];
         option.dataset.answer = index === questionData.correct ? 'correct' : 'wrong';
     });
+
+    hasAnswered = false; // Reset the answer status for the new question
 }
 
 options.forEach(option => {
     option.addEventListener('click', (event) => {
+
         if (event.target.dataset.answer === 'correct') {
             event.target.classList.add('correct-animation');
             setTimeout(() => {
                 event.target.classList.remove('correct-animation');
 
-                // Update score and proceed to the next question
-                score += 100;  // Increment score by 100 for each correct answer
-                correctAnswers++;
-                correctAnswersElement.textContent = correctAnswers;
-                scoreElement.textContent = score;
+                // Update score and proceed to the next question only if not previously answered wrong
+                if (!hasAnswered) {
+                    score += 100;  // Increment score by 100 for each correct answer
+                    correctAnswers++;
+                    correctAnswersElement.textContent = correctAnswers;
+                    scoreElement.textContent = score;
+                    hasAnswered = true; // Mark as answered after the first attempt
+                }
 
                 currentQuestion++;
                 if (currentQuestion < moneyLadder.length) {
@@ -100,16 +107,16 @@ options.forEach(option => {
             event.target.classList.add('wrong-animation');
             setTimeout(() => {
                 event.target.classList.remove('wrong-animation');
+                hasAnswered = true; // Mark as answered after the first attempt
             }, 1000);
         }
     });
 });
 
-
 function resetGame() {
     currentQuestion = 0;
     score = 0;
-    correctAnswers = 0;
+    correctAnswers = 0; // Reset correct answers count
     loadQuestion();
     correctAnswersElement.textContent = correctAnswers;
     scoreElement.textContent = score;
