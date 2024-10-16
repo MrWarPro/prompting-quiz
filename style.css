@@ -72,7 +72,6 @@ h1 {
     color: #00264d;
 }
 
-
 /* Question Container Styling */
 .question-container {
     background-color: rgba(0, 0, 0, 0.8);
@@ -104,10 +103,10 @@ h1 {
 .option {
     background-color: #00264d;
     color: #f9a602;
-    border: 2px solid #f9a602;
+    border: 2px solid transparent;
     padding: 15px;
     font-size: 1.1em;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     display: flex;
@@ -129,42 +128,20 @@ h1 {
 .option:hover {
     background-color: #f9a602;
     color: #00264d;
-}
-
-/* Scoring System Styling */
-.score-system {
-    width: 25%;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Dark background to stand out */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    margin-left: 20px;
-    color: #f9a602;
-    text-align: center;
-}
-
-.score-container p {
-    margin: 10px 0;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.score-container span {
-    color: #f96b00;
+    border: 2px solid #f9a602;
 }
 
 /* Money Ladder Styling */
 .money-ladder {
-    width: 25%;
-    padding: 10px;
-    /* Add padding inside the ladder for better appearance */
+    width: 20%;
+    padding: 5px;
+    /* Reduced padding for smaller appearance */
     background-color: rgba(0, 0, 0, 0.8);
     /* Darker background to distinguish from the page */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    margin-left: 20px;
-    /* Ensure there is some space between the ladder and the question container */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    margin-left: 10px;
+    /* Reduced margin for better spacing */
 }
 
 .money-ladder ul {
@@ -172,18 +149,24 @@ h1 {
     padding: 0;
     margin: 0;
     color: #f9a602;
-    font-size: 1.1em;
-    /* Slightly increase the font size for better readability */
+    font-size: 1em;
+    /* Slightly smaller font size for better readability in smaller size */
 }
 
 .money-ladder li {
     background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 8px;
-    /* Add space between the items for a cleaner look */
-    padding: 10px;
+    margin-bottom: 5px;
+    /* Reduced margin for tighter look */
+    padding: 8px;
     border-radius: 5px;
-    text-align: right;
+    text-align: left;
+    /* Updated text alignment for consistency with provided image */
     transition: background-color 0.3s;
+}
+
+.money-ladder li span {
+    float: right;
+    margin-left: 10px;
 }
 
 .money-ladder li:hover {
@@ -192,8 +175,10 @@ h1 {
 }
 
 .highlight {
-    background-color: #f96b00;
-    color: white;
+    background-color: #ffd700 !important;
+    color: #000;
+    border: 2px solid #ff8c00;
+    /* Updated highlight styling for better visibility */
 }
 
 /* Extra Styling */

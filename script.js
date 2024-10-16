@@ -1,14 +1,6 @@
 const questionElement = document.getElementById('question');
 const options = document.querySelectorAll('.option');
-const scoreElement = document.getElementById('score');
-const correctAnswersElement = document.getElementById('correct-answers');
-const currentQuestionElement = document.getElementById('current-question');
-const totalQuestionsElement = document.getElementById('total-questions');
-
 let currentQuestion = 0;
-let score = 0;
-let correctAnswers = 0;
-let hasAnswered = false;
 
 let moneyLadder = [
     {
@@ -63,8 +55,6 @@ let moneyLadder = [
     }
 ];
 
-totalQuestionsElement.textContent = moneyLadder.length;
-
 function loadQuestion() {
     let questionData = moneyLadder[currentQuestion];
     questionElement.textContent = questionData.question;
@@ -73,31 +63,20 @@ function loadQuestion() {
         option.textContent = questionData.options[index];
         option.dataset.answer = index === questionData.correct ? 'correct' : 'wrong';
     });
-
-    hasAnswered = false; // Reset the answer status for the new question
 }
 
 options.forEach(option => {
     option.addEventListener('click', (event) => {
-
         if (event.target.dataset.answer === 'correct') {
             event.target.classList.add('correct-animation');
             setTimeout(() => {
                 event.target.classList.remove('correct-animation');
 
-                // Update score and proceed to the next question only if not previously answered wrong
-                if (!hasAnswered) {
-                    score += 100;  // Increment score by 100 for each correct answer
-                    correctAnswers++;
-                    correctAnswersElement.textContent = correctAnswers;
-                    scoreElement.textContent = score;
-                    hasAnswered = true; // Mark as answered after the first attempt
-                }
-
+                // Move to the next question
                 currentQuestion++;
                 if (currentQuestion < moneyLadder.length) {
                     loadQuestion();
-                    currentQuestionElement.textContent = currentQuestion + 1;
+                    document.querySelector('.money-ladder ul').children[14 - currentQuestion].classList.add('highlight');
                 } else {
                     alert('Congratulations! You completed the quiz.');
                     resetGame();
@@ -107,7 +86,6 @@ options.forEach(option => {
             event.target.classList.add('wrong-animation');
             setTimeout(() => {
                 event.target.classList.remove('wrong-animation');
-                hasAnswered = true; // Mark as answered after the first attempt
             }, 1000);
         }
     });
@@ -115,12 +93,12 @@ options.forEach(option => {
 
 function resetGame() {
     currentQuestion = 0;
-    score = 0;
-    correctAnswers = 0; // Reset correct answers count
     loadQuestion();
-    correctAnswersElement.textContent = correctAnswers;
-    scoreElement.textContent = score;
-    currentQuestionElement.textContent = 1;
+    document.querySelectorAll('.money-ladder ul li').forEach((li, index) => {
+        li.classList.remove('highlight');
+    });
+    document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
 }
 
 loadQuestion();
+document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
