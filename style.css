@@ -1,6 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #004d99, #001f33);
+    background: url('https://p.turbosquid.com/ts-thumb/ux/XPvEJ4/LH/pre_00000/jpg/1666874354/1920x1080/fit_q87/155f16808cab5692c741e9446a018428fdd9e86d/pre_00000.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     margin: 0;
     display: flex;
@@ -42,7 +43,7 @@ h1 {
 }
 
 .lifeline {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -74,7 +75,7 @@ h1 {
 
 /* Question Container Styling */
 .question-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
@@ -82,13 +83,13 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-right: 30px;
+    margin-right: 10px;
 }
 
 #question {
     font-size: 1.5em;
     text-align: center;
-    padding: 10px 0;
+    /* padding: 10px 0; */
 }
 
 .options {
@@ -134,10 +135,10 @@ h1 {
 .score-system {
     width: 25%;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     /* Dark background to stand out */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     margin-left: 20px;
     color: #f9a602;
     text-align: center;
@@ -158,10 +159,10 @@ h1 {
     width: 25%;
     padding: 10px;
     /* Add padding inside the ladder for better appearance */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     /* Darker background to distinguish from the page */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     margin-left: 20px;
     /* Ensure there is some space between the ladder and the question container */
 }
