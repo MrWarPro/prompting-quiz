@@ -1,0 +1,212 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #004d99, #001f33);
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    width: 85%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #f9a602;
+    margin: 0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Lifelines Section with equal width/height buttons */
+.lifelines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 15%;
+}
+
+.lifeline {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid #f9a602;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 80px;
+    /* Set equal width */
+    height: 80px;
+    /* Set equal height */
+}
+
+.lifeline img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.lifeline:hover {
+    background-color: #f9a602;
+    color: #00264d;
+}
+
+
+/* Question Container Styling */
+.question-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-right: 30px;
+}
+
+#question {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.option {
+    background-color: #00264d;
+    color: #f9a602;
+    border: 2px solid #f9a602;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 200px;
+    min-height: 80px;
+    height: auto;
+    /* Allow the height to adjust based on the content */
+    white-space: normal;
+    /* Allow text to wrap */
+    text-align: center;
+    /* Center the text */
+    word-wrap: break-word;
+    /* Break long words if necessary */
+}
+
+.option:hover {
+    background-color: #f9a602;
+    color: #00264d;
+}
+
+/* Scoring System Styling */
+.score-system {
+    width: 25%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark background to stand out */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-left: 20px;
+    color: #f9a602;
+    text-align: center;
+}
+
+.score-container p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.score-container span {
+    color: #f96b00;
+}
+
+
+
+/* Money Ladder Styling */
+.money-ladder {
+    width: 25%;
+    padding: 10px;
+    /* Add padding inside the ladder for better appearance */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Darker background to distinguish from the page */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-left: 20px;
+    /* Ensure there is some space between the ladder and the question container */
+}
+
+.money-ladder ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #f9a602;
+    font-size: 1.1em;
+    /* Slightly increase the font size for better readability */
+}
+
+.money-ladder li {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    /* Add space between the items for a cleaner look */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: right;
+    transition: background-color 0.3s;
+}
+
+.money-ladder li:hover {
+    background-color: rgba(249, 106, 0, 0.7);
+    /* Add hover effect for better interaction feedback */
+}
+
+.highlight {
+    background-color: #f96b00;
+    color: white;
+}
+
+/* Extra Styling */
+.footer-button {
+    background-color: #f9a602;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.footer-button:hover {
+    background-color: #ffbe00;
+}

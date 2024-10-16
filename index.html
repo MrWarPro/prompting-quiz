@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who Wants to Be a Prompt Guru</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="game-container">
+    <header>
+      <h1>Who Wants to Be a Prompt Guru?</h1>
+    </header>
+
+    <div class="content">
+      <!-- Lifelines with icons and text -->
+      <div class="lifelines">
+        <button class="lifeline">
+          <img src="half.svg" alt="50/50 Lifeline">
+          <span>50/50</span>
+        </button>
+        <button class="lifeline">
+          <img src="phone.svg" alt="Call a Friend Lifeline">
+          <span>Call</span>
+        </button>
+        <button class="lifeline">
+          <img src="group.svg" alt="Ask the Audience Lifeline">
+          <span>Audience</span>
+        </button>
+      </div>
+
+
+      <!-- Question & Answers -->
+      <div class="question-container">
+        <p id="question">Which programming language is primarily used for web development?</p>
+        <ul class="options">
+          <li><button class="option" data-answer="wrong">A: C++</button></li>
+          <li><button class="option" data-answer="correct">B: JavaScript</button></li>
+          <li><button class="option" data-answer="wrong">C: Python</button></li>
+          <li><button class="option" data-answer="wrong">D: Java</button></li>
+        </ul>
+        <button class="footer-button">End Game</button>
+      </div>
+
+      <!-- Scoring System -->
+      <div class="score-system">
+        <div class="score-container">
+          <p><strong>Score:</strong> <span id="score">0</span></p>
+          <p><strong>Correct Answers:</strong> <span id="correct-answers">0</span></p>
+          <p><strong>Question:</strong> <span id="current-question">1</span> / <span id="total-questions">16</span></p>
+        </div>
+      </div>
+
+
+      <!-- Money Ladder -->
+      <!-- <div class="money-ladder">
+        <ul>
+          <li>15: €1 MILLION</li>
+          <li>14: €500,000</li>
+          <li>13: €250,000</li>
+          <li>12: €125,000</li>
+          <li>11: €64,000</li>
+          <li>10: €32,000</li>
+          <li>9: €16,000</li>
+          <li>8: €8,000</li>
+          <li>7: €4,000</li>
+          <li>6: €2,000</li>
+          <li>5: €1,000</li>
+          <li>4: €500</li>
+          <li>3: €300</li>
+          <li>2: €200</li>
+          <li>1: €100</li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
