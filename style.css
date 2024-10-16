@@ -103,7 +103,7 @@ h1 {
 .option {
     background-color: #00264d;
     color: #f9a602;
-    border: 2px solid transparent;
+    border: 0px solid transparent;
     padding: 15px;
     font-size: 1.1em;
     border-radius: 15px;
@@ -128,7 +128,7 @@ h1 {
 .option:hover {
     background-color: #f9a602;
     color: #00264d;
-    border: 2px solid #f9a602;
+    border: 0px solid #f9a602;
 }
 
 /* Money Ladder Styling */
@@ -197,11 +197,29 @@ h1 {
 
 /* Animations for Correct and Wrong Answers */
 .correct-animation {
-    animation: correctFlash 1s ease;
+    animation: correctFlash 1s ease, showEmoji 1s steps(1, end) infinite;
+    position: relative;
+}
+
+.correct-animation::after {
+    content: '🎉';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5em;
 }
 
 .wrong-animation {
-    animation: wrongShake 1s ease;
+    animation: wrongFlash 1s ease, showWrongEmoji 1s steps(1, end) infinite;
+    position: relative;
+}
+
+.wrong-animation::after {
+    content: '😕';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5em;
 }
 
 @keyframes correctFlash {
