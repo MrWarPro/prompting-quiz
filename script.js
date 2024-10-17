@@ -138,11 +138,14 @@ fiftyFiftyButton.addEventListener('click', () => {
         option.style.display = 'none';
     });
 
-    fiftyFiftyButton.remove(); // Remove the lifeline button after use
+    fiftyFiftyButton.disabled = true; // Disable the button after use
+    fiftyFiftyButton.classList.add('disabled'); // Optionally add a class for styling
 });
 
 // Implementing Ask the Audience Lifeline
 audiencePollButton.addEventListener('click', () => {
+    if (audiencePollButton.disabled) return;
+
     let percentages = [0, 0, 0, 0];
     let correctIndex = moneyLadder[currentQuestion].correct;
 
@@ -174,7 +177,8 @@ audiencePollButton.addEventListener('click', () => {
         percentageLabel.textContent = `${percentages[index]}%`;
     });
 
-    audiencePollButton.style.display = 'none'; // Remove the audience poll button after use
+    audiencePollButton.disabled = true; // Disable the button after use
+    audiencePollButton.classList.add('disabled'); // Optionally add a class for styling
 });
 
 function resetGame() {
@@ -186,8 +190,11 @@ function resetGame() {
     document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
 
     // Reset lifelines
-    fiftyFiftyButton.style.display = 'block';
-    audiencePollButton.style.display = 'block';
+    fiftyFiftyButton.disabled = false; // Enable 50:50 button
+    audiencePollButton.disabled = false; // Enable audience poll button
+
+    fiftyFiftyButton.classList.remove('disabled'); // Remove disabled class from 50:50 button
+    audiencePollButton.classList.remove('disabled'); // Remove disabled class from audience poll button
 
     // Reset options display
     options.forEach(option => {

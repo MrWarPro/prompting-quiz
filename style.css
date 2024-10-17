@@ -31,6 +31,8 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 10px;
+    /* Added gap for spacing between money ladder and middle area */
 }
 
 /* Lifelines Section with equal width/height buttons */
@@ -56,15 +58,14 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s;
     width: 80px;
-    /* Set equal width */
     height: 80px;
-    /* Set equal height */
 }
 
 .lifeline img {
     width: 30px;
     height: 30px;
     margin-bottom: 5px;
+    filter: invert(75%) sepia(100%) saturate(2000%) hue-rotate(1deg) brightness(100%) contrast(100%);
 }
 
 .lifeline:hover {
@@ -72,13 +73,28 @@ h1 {
     color: #00264d;
 }
 
+.lifeline.disabled {
+    background-color: #555555;
+    /* Darker color to indicate disabled */
+    color: #a0a0a0;
+    /* Light gray text */
+    cursor: not-allowed;
+    /* Show not-allowed cursor */
+    pointer-events: none;
+    /* Prevent any interaction */
+    border: 1px solid #777777;
+    /* Dull border to indicate disabled */
+}
+
+
 /* Question Container Styling */
 .question-container {
+    max-width: 800px;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    width: 60%;
+    /* width: 60%; */
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
@@ -88,7 +104,6 @@ h1 {
 #question {
     font-size: 1.5em;
     text-align: center;
-    /* padding: 10px 0; */
 }
 
 .options {
@@ -116,13 +131,9 @@ h1 {
     min-width: 200px;
     min-height: 80px;
     height: auto;
-    /* Allow the height to adjust based on the content */
     white-space: normal;
-    /* Allow text to wrap */
     text-align: center;
-    /* Center the text */
     word-wrap: break-word;
-    /* Break long words if necessary */
 }
 
 .option:hover {
@@ -133,15 +144,13 @@ h1 {
 
 /* Money Ladder Styling */
 .money-ladder {
-    width: 20%;
+    width: 30%;
     padding: 5px;
-    /* Reduced padding for smaller appearance */
     background-color: rgba(0, 0, 0, 0.8);
-    /* Darker background to distinguish from the page */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-    margin-left: 10px;
-    /* Reduced margin for better spacing */
+    /* margin-left: 20px; */
+    /* Increased margin for better spacing */
 }
 
 .money-ladder ul {
@@ -150,17 +159,14 @@ h1 {
     margin: 0;
     color: #f9a602;
     font-size: 1em;
-    /* Slightly smaller font size for better readability in smaller size */
 }
 
 .money-ladder li {
     background-color: rgba(255, 255, 255, 0.1);
     margin-bottom: 5px;
-    /* Reduced margin for tighter look */
     padding: 8px;
     border-radius: 5px;
     text-align: left;
-    /* Updated text alignment for consistency with provided image */
     transition: background-color 0.3s;
 }
 
@@ -171,14 +177,12 @@ h1 {
 
 .money-ladder li:hover {
     background-color: rgba(249, 106, 0, 0.7);
-    /* Add hover effect for better interaction feedback */
 }
 
 .highlight {
     background-color: #ffd700 !important;
     color: #000;
     border: 2px solid #ff8c00;
-    /* Updated highlight styling for better visibility */
 }
 
 /* Extra Styling */
@@ -222,6 +226,7 @@ h1 {
     font-size: 1.5em;
 }
 
+/* Audience Poll Styling */
 .audience-poll {
     display: block;
     margin: 20px auto;
@@ -235,10 +240,11 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid #fff;
     position: relative;
-    height: 250px;
+    height: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .poll-bar {
@@ -252,20 +258,26 @@ h1 {
 .bar {
     width: 50px;
     height: 0;
-    background: linear-gradient(to top, #ff66cc, #ffccff);
-    transition: height 1s ease;
+    background: linear-gradient(to top, #ff66cc, #ff99ff);
+    transition: height 1.5s cubic-bezier(0.25, 1.25, 0.5, 1.5);
     margin-bottom: 10px;
     border: 1px solid #fff;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
 }
 
 .percentage {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: bold;
+    color: #fff;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 20px;
 }
 
 .bar-label {
     margin-top: 10px;
+    font-weight: bold;
+    color: #ffd700;
 }
 
 .poll-chart::before {
@@ -278,10 +290,9 @@ h1 {
     background-image: linear-gradient(to right, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
     background-size: 50px 50px;
     pointer-events: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 
 @keyframes correctFlash {
     0% {

@@ -32,14 +32,42 @@
       </div>
 
       <!-- Question & Answers -->
-      <div class="question-container">
-        <p id="question">Which programming language is primarily used for web development?</p>
-        <ul class="options">
-          <li><button class="option" data-answer="wrong">A: C++</button></li>
-          <li><button class="option" data-answer="correct">B: JavaScript</button></li>
-          <li><button class="option" data-answer="wrong">C: Python</button></li>
-          <li><button class="option" data-answer="wrong">D: Java</button></li>
-        </ul>
+      <div class="main-content">
+        <div class="question-container">
+          <p id="question">Which programming language is primarily used for web development?</p>
+          <ul class="options">
+            <li><button class="option" data-answer="wrong">A: C++</button></li>
+            <li><button class="option" data-answer="correct">B: JavaScript</button></li>
+            <li><button class="option" data-answer="wrong">C: Python</button></li>
+            <li><button class="option" data-answer="wrong">D: Java</button></li>
+          </ul>
+        </div>
+
+        <!-- Audience Poll Chart -->
+        <div class="audience-poll" id="audience-poll" style="display: none;">
+          <div class="poll-chart">
+            <div class="poll-bar" id="option-a">
+              <span class="bar-label">A</span>
+              <div class="bar"></div>
+              <span class="percentage"></span>
+            </div>
+            <div class="poll-bar" id="option-b">
+              <span class="bar-label">B</span>
+              <div class="bar"></div>
+              <span class="percentage"></span>
+            </div>
+            <div class="poll-bar" id="option-c">
+              <span class="bar-label">C</span>
+              <div class="bar"></div>
+              <span class="percentage"></span>
+            </div>
+            <div class="poll-bar" id="option-d">
+              <span class="bar-label">D</span>
+              <div class="bar"></div>
+              <span class="percentage"></span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Money Ladder -->
@@ -64,35 +92,7 @@
       </div>
     </div>
 
-    <!-- Audience Poll Chart -->
-    <div class="audience-poll" id="audience-poll" style="display: none;">
-      <h2>Audience Poll Results</h2>
-      <div class="poll-chart">
-        <div class="poll-bar" id="option-a">
-          <span class="bar-label">A</span>
-          <div class="bar"></div>
-          <span class="percentage"></span>
-        </div>
-        <div class="poll-bar" id="option-b">
-          <span class="bar-label">B</span>
-          <div class="bar"></div>
-          <span class="percentage"></span>
-        </div>
-        <div class="poll-bar" id="option-c">
-          <span class="bar-label">C</span>
-          <div class="bar"></div>
-          <span class="percentage"></span>
-        </div>
-        <div class="poll-bar" id="option-d">
-          <span class="bar-label">D</span>
-          <div class="bar"></div>
-          <span class="percentage"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
