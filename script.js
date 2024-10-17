@@ -5,6 +5,8 @@ const fiftyFiftyButton = document.getElementById('fifty-fifty');
 const callFriendButton = document.getElementById('call-friend');
 const audiencePollButton = document.getElementById('ask-audience');
 const audiencePollContainer = document.getElementById('audience-poll');
+const shareButton = document.getElementById('share-button');
+const shareContainer = document.getElementById('share-container');
 let currentQuestion = 0;
 
 let moneyLadder = [
@@ -202,8 +204,8 @@ options.forEach(option => {
 });
 
 // Show completion message
+// Show completion message
 function showCompletionMessage() {
-
     // Get references to the elements
     const mainContent = document.getElementById("main-content");
     const completionMessage = document.getElementById("completion-message");
@@ -218,6 +220,28 @@ function showCompletionMessage() {
     // Adding an event listener to the "Learn More" button
     document.getElementById('learn-more-button').addEventListener('click', () => {
         window.open('https://forms.gle/Tm2jtogT1PWZE7BF7', '_blank'); // Replace with the actual URL
+    });
+
+    // Adding event listener for share button
+    const newShareButton = document.getElementById('share-button');
+    newShareButton.addEventListener('click', () => {
+        const shareUrl = window.location.href;
+        const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
+
+        // Check if Web Share API is supported
+        if (navigator.share) {
+            navigator.share({
+                title: 'Test Your Prompting Skills',
+                text: shareText,
+                url: shareUrl,
+            })
+                .then(() => console.log('Thanks for sharing!'))
+                .catch((error) => console.error('Error sharing:', error));
+        } else {
+            // Fallback for non-supporting browsers
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            window.open(twitterUrl, '_blank');
+        }
     });
 }
 
