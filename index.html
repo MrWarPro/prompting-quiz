@@ -17,15 +17,15 @@
     <div class="content">
       <!-- Lifelines with icons and text -->
       <div class="lifelines">
-        <button class="lifeline" id="fifty-fifty">
+        <button class="lifeline disabled" id="fifty-fifty" disabled>
           <img src="half.svg" alt="50/50 Lifeline">
           <span>50/50</span>
         </button>
-        <button class="lifeline" id="call-friend">
+        <button class="lifeline disabled" id="call-friend" disabled>
           <img src="phone.svg" alt="Call a Friend Lifeline">
           <span>Call</span>
         </button>
-        <button class="lifeline" id="ask-audience">
+        <button class="lifeline disabled" id="ask-audience" disabled>
           <img src="group.svg" alt="Ask the Audience Lifeline">
           <span>Audience</span>
         </button>
@@ -36,11 +36,14 @@
         <div class="question-container">
           <p id="question">Which programming language is primarily used for web development?</p>
           <ul class="options">
-            <li><button class="option" data-answer="wrong">A: C++</button></li>
-            <li><button class="option" data-answer="correct">B: JavaScript</button></li>
-            <li><button class="option" data-answer="wrong">C: Python</button></li>
-            <li><button class="option" data-answer="wrong">D: Java</button></li>
+            <li><button class="option" data-answer="wrong" disabled>A: C++</button></li>
+            <li><button class="option" data-answer="correct" disabled>B: JavaScript</button></li>
+            <li><button class="option" data-answer="wrong" disabled>C: Python</button></li>
+            <li><button class="option" data-answer="wrong" disabled>D: Java</button></li>
           </ul>
+
+          <!-- Start the Game Button -->
+          <button class="start-button" id="start-game">Start the Game</button>
         </div>
 
         <!-- Audience Poll Chart -->

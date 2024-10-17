@@ -187,7 +187,7 @@ h1 {
 
 /* Extra Styling */
 .footer-button {
-    background-color: #f9a602;
+    background-color: #27cc1e;
     border: none;
     padding: 10px 15px;
     border-radius: 8px;
@@ -293,6 +293,39 @@ h1 {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.start-button {
+    background-color: #28a745;
+    /* Green color */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    /* Larger padding for bigger appearance */
+    font-size: 1.5em;
+    /* Increase font size */
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    /* Smooth transition for hover effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Add shadow for depth */
+}
+
+.start-button:hover {
+    background-color: #218838;
+    /* Darker green on hover */
+    transform: translateY(-3px);
+    /* Slight lift on hover */
+}
+
+.start-button:active {
+    background-color: #1e7e34;
+    /* Even darker green when clicked */
+    transform: translateY(1px);
+    /* Slight depression on click */
+}
+
 
 @keyframes correctFlash {
     0% {

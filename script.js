@@ -1,3 +1,4 @@
+const startGameButton = document.getElementById('start-game');
 const questionElement = document.getElementById('question');
 const options = document.querySelectorAll('.option');
 const fiftyFiftyButton = document.getElementById('fifty-fifty');
@@ -95,14 +96,17 @@ function loadQuestion() {
     options.forEach((option, index) => {
         option.textContent = questionData.options[index];
         option.dataset.answer = index === questionData.correct ? 'correct' : 'wrong';
-        option.style.display = 'block'; // Make sure all options are visible
+        option.style.display = 'block';
     });
 
     audiencePollContainer.style.display = 'none'; // Hide audience poll when loading a new question
 }
 
+// Option Click Event
 options.forEach(option => {
     option.addEventListener('click', (event) => {
+        if (event.target.disabled) return; // Prevent clicking disabled options
+
         if (event.target.dataset.answer === 'correct') {
             event.target.classList.add('correct-animation');
             setTimeout(() => {
@@ -139,7 +143,7 @@ fiftyFiftyButton.addEventListener('click', () => {
     });
 
     fiftyFiftyButton.disabled = true; // Disable the button after use
-    fiftyFiftyButton.classList.add('disabled'); // Optionally add a class for styling
+    fiftyFiftyButton.classList.add('disabled');
 });
 
 // Implementing Ask the Audience Lifeline
@@ -178,7 +182,26 @@ audiencePollButton.addEventListener('click', () => {
     });
 
     audiencePollButton.disabled = true; // Disable the button after use
-    audiencePollButton.classList.add('disabled'); // Optionally add a class for styling
+    audiencePollButton.classList.add('disabled');
+});
+
+startGameButton.addEventListener('click', () => {
+    startGameButton.style.display = 'none'; // Hide the start game button
+
+    // Enable lifeline buttons
+    fiftyFiftyButton.disabled = false;
+    audiencePollButton.disabled = false;
+    document.querySelectorAll('.lifeline').forEach(button => {
+        button.classList.remove('disabled');
+    });
+
+    // Enable answer options
+    options.forEach(option => {
+        option.disabled = false;
+    });
+
+    // Highlight the first level in the money ladder
+    document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
 });
 
 function resetGame() {
@@ -199,6 +222,7 @@ function resetGame() {
     // Reset options display
     options.forEach(option => {
         option.style.display = 'inline-block';
+        option.disabled = false;
     });
 }
 
