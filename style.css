@@ -222,6 +222,67 @@ h1 {
     font-size: 1.5em;
 }
 
+.audience-poll {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.poll-chart {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #fff;
+    position: relative;
+    height: 250px;
+}
+
+.poll-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.bar {
+    width: 50px;
+    height: 0;
+    background: linear-gradient(to top, #ff66cc, #ffccff);
+    transition: height 1s ease;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.percentage {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.bar-label {
+    margin-top: 10px;
+}
+
+.poll-chart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+    background-size: 50px 50px;
+    pointer-events: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
 @keyframes correctFlash {
     0% {
         background-color: #00264d;

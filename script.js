@@ -1,5 +1,8 @@
 const questionElement = document.getElementById('question');
 const options = document.querySelectorAll('.option');
+const fiftyFiftyButton = document.getElementById('fifty-fifty');
+const audiencePollButton = document.getElementById('ask-audience');
+const audiencePollContainer = document.getElementById('audience-poll');
 let currentQuestion = 0;
 
 let moneyLadder = [
@@ -92,7 +95,10 @@ function loadQuestion() {
     options.forEach((option, index) => {
         option.textContent = questionData.options[index];
         option.dataset.answer = index === questionData.correct ? 'correct' : 'wrong';
+        option.style.display = 'block'; // Make sure all options are visible
     });
+
+    audiencePollContainer.style.display = 'none'; // Hide audience poll when loading a new question
 }
 
 options.forEach(option => {
@@ -121,6 +127,56 @@ options.forEach(option => {
     });
 });
 
+// Implementing 50:50 Lifeline
+fiftyFiftyButton.addEventListener('click', () => {
+    if (fiftyFiftyButton.disabled) return;
+
+    let incorrectOptions = Array.from(options).filter(option => option.dataset.answer === 'wrong');
+    let optionsToRemove = incorrectOptions.sort(() => 0.5 - Math.random()).slice(0, 2);
+
+    optionsToRemove.forEach(option => {
+        option.style.display = 'none';
+    });
+
+    fiftyFiftyButton.remove(); // Remove the lifeline button after use
+});
+
+// Implementing Ask the Audience Lifeline
+audiencePollButton.addEventListener('click', () => {
+    let percentages = [0, 0, 0, 0];
+    let correctIndex = moneyLadder[currentQuestion].correct;
+
+    // Assign a higher percentage to the correct answer
+    percentages[correctIndex] = Math.floor(Math.random() * 30) + 50;
+
+    // Distribute remaining percentage to other options
+    let remainingPercentage = 100 - percentages[correctIndex];
+    let incorrectIndices = [0, 1, 2, 3].filter(index => index !== correctIndex);
+
+    incorrectIndices.forEach((index, i) => {
+        if (i === incorrectIndices.length - 1) {
+            percentages[index] = remainingPercentage;
+        } else {
+            let value = Math.floor(Math.random() * remainingPercentage);
+            percentages[index] = value;
+            remainingPercentage -= value;
+        }
+    });
+
+    // Display the audience poll as a bar chart
+    audiencePollContainer.style.display = 'block';
+    const pollBars = document.querySelectorAll('.poll-bar');
+    pollBars.forEach((pollBar, index) => {
+        let bar = pollBar.querySelector('.bar');
+        let percentageLabel = pollBar.querySelector('.percentage');
+
+        bar.style.height = `${percentages[index] * 2}px`; // Adjust height multiplier as needed
+        percentageLabel.textContent = `${percentages[index]}%`;
+    });
+
+    audiencePollButton.style.display = 'none'; // Remove the audience poll button after use
+});
+
 function resetGame() {
     currentQuestion = 0;
     loadQuestion();
@@ -128,6 +184,15 @@ function resetGame() {
         li.classList.remove('highlight');
     });
     document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
+
+    // Reset lifelines
+    fiftyFiftyButton.style.display = 'block';
+    audiencePollButton.style.display = 'block';
+
+    // Reset options display
+    options.forEach(option => {
+        option.style.display = 'inline-block';
+    });
 }
 
 loadQuestion();

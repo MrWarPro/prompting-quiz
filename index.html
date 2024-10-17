@@ -17,15 +17,15 @@
     <div class="content">
       <!-- Lifelines with icons and text -->
       <div class="lifelines">
-        <button class="lifeline">
+        <button class="lifeline" id="fifty-fifty">
           <img src="half.svg" alt="50/50 Lifeline">
           <span>50/50</span>
         </button>
-        <button class="lifeline">
+        <button class="lifeline" id="call-friend">
           <img src="phone.svg" alt="Call a Friend Lifeline">
           <span>Call</span>
         </button>
-        <button class="lifeline">
+        <button class="lifeline" id="ask-audience">
           <img src="group.svg" alt="Ask the Audience Lifeline">
           <span>Audience</span>
         </button>
@@ -40,7 +40,6 @@
           <li><button class="option" data-answer="wrong">C: Python</button></li>
           <li><button class="option" data-answer="wrong">D: Java</button></li>
         </ul>
-        <!-- <button class="footer-button">End Game</button> -->
       </div>
 
       <!-- Money Ladder -->
@@ -62,6 +61,33 @@
           <li>2: €200</li>
           <li>1: €100</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Audience Poll Chart -->
+    <div class="audience-poll" id="audience-poll" style="display: none;">
+      <h2>Audience Poll Results</h2>
+      <div class="poll-chart">
+        <div class="poll-bar" id="option-a">
+          <span class="bar-label">A</span>
+          <div class="bar"></div>
+          <span class="percentage"></span>
+        </div>
+        <div class="poll-bar" id="option-b">
+          <span class="bar-label">B</span>
+          <div class="bar"></div>
+          <span class="percentage"></span>
+        </div>
+        <div class="poll-bar" id="option-c">
+          <span class="bar-label">C</span>
+          <div class="bar"></div>
+          <span class="percentage"></span>
+        </div>
+        <div class="poll-bar" id="option-d">
+          <span class="bar-label">D</span>
+          <div class="bar"></div>
+          <span class="percentage"></span>
+        </div>
       </div>
     </div>
   </div>
