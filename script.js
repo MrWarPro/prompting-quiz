@@ -328,18 +328,18 @@ fiftyFiftyButton.addEventListener('click', () => {
     fiftyFiftyButton.classList.add('disabled');
 });
 
-// // Implementing Call a Friend Lifeline
-// callFriendButton.addEventListener('click', () => {
-//     if (callFriendButton.disabled) return;
+// Implementing Call a Friend Lifeline
+callFriendButton.addEventListener('click', () => {
+    if (callFriendButton.disabled) return;
 
-//     let correctIndex = moneyLadder[currentQuestion].correct;
-//     let friendResponse = `I think the answer is ${String.fromCharCode(65 + correctIndex)}.`;
+    let correctIndex = moneyLadder[currentQuestion].correct;
+    let friendResponse = `I think the answer is ${String.fromCharCode(65 + correctIndex)}.`;
 
-//     alert(friendResponse);
+    alert(friendResponse);
 
-//     callFriendButton.disabled = true; // Disable the button after use
-//     callFriendButton.classList.add('disabled');
-// });
+    callFriendButton.disabled = true; // Disable the button after use
+    callFriendButton.classList.add('disabled');
+});
 
 // Implementing Ask the Audience Lifeline
 audiencePollButton.addEventListener('click', () => {
@@ -388,6 +388,7 @@ startGameButton.addEventListener('click', () => {
 
     // Enable lifeline buttons
     fiftyFiftyButton.disabled = false;
+    callFriendButton.disabled = false;
     audiencePollButton.disabled = false;
     document.querySelectorAll('.lifeline').forEach(button => {
         button.classList.remove('disabled');
@@ -418,6 +419,7 @@ function resetGame() {
 
     // Reset lifelines
     fiftyFiftyButton.disabled = false; // Enable 50:50 button
+    callFriendButton.disabled = false; // Enable call a friend button
     audiencePollButton.disabled = false; // Enable audience poll button
 
     fiftyFiftyButton.classList.remove('disabled'); // Remove disabled class from 50:50 button
