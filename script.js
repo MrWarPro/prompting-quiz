@@ -52,6 +52,36 @@ let moneyLadder = [
         question: 'What is the key advancement of Multimodal CoT Prompting compared to traditional chain-of-thought (CoT) prompting?',
         options: ['A: It eliminates the need for rationale generation.', 'B: It incorporates both text and vision modalities in reasoning.', 'C: It reduces the number of reasoning steps required.', 'D: It focuses exclusively on language processing.'],
         correct: 1
+    },
+    {
+        question: 'What is a key feature of the Reflexion framework in language-based agents?',
+        options: ['A: It eliminates the need for memory in decision-making.', 'B: It provides verbal feedback to help agents learn from prior mistakes.', 'C: It relies on traditional reinforcement learning methods for improvement.', 'D: It requires extensive model fine-tuning to enhance performance.'],
+        correct: 1
+    },
+    {
+        question: 'What is the key difference between Program-Aided Language Models (PAL) and traditional chain-of-thought (CoT) prompting?',
+        options: ['A: PAL generates solutions using free-form text.', 'B: PAL offloads the solution step to a programmatic runtime.', 'C: PAL focuses only on language-based reasoning.', 'D: PAL requires no external tools for task execution.'],
+        correct: 1
+    },
+    {
+        question: 'What is the main goal of the Active-Prompt approach in adapting LLMs to specific tasks?',
+        options: ['A: To remove the need for any human-annotated examples.', 'B: To select the most effective human-annotated examples based on uncertainty metrics.', 'C: To generate answers without any exemplars.', 'D: To simplify tasks by using only pre-defined examples.'],
+        correct: 1
+    },
+    {
+        question: 'What is a primary advantage of the Tree of Thoughts (ToT) framework compared to traditional chain-of-thought prompting?',
+        options: ['A: It eliminates the need for intermediate steps in problem-solving.', 'B: It encourages exploration and strategic lookahead through tree-based reasoning.', 'C: It requires fewer steps to reach a solution.', 'D: It replaces search algorithms with a single-step process.'],
+        correct: 1
+    },
+    {
+        question: 'What is the primary benefit of Prompt Chaining in the context of large language models (LLMs)?',
+        options: ['A: It simplifies tasks by using only one complex prompt.', 'B: It allows LLMs to perform multiple subtasks in sequence, increasing reliability and transparency.', 'C: It eliminates the need for human-designed prompts.', 'D: It focuses exclusively on reducing the size of the language model.'],
+        correct: 1
+    },
+    {
+        question: 'What is a key characteristic of Meta Prompting compared to traditional content-centric prompting techniques?',
+        options: ['A: It focuses on solving problems by providing detailed content examples.', 'B: It emphasizes the structure and syntax of problems over specific content.', 'C: It eliminates the need for problem-solving patterns and logic.', 'D: It is limited to specific domains like coding and mathematics.'],
+        correct: 1
     }
 ];
 
