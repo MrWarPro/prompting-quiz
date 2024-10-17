@@ -102,7 +102,6 @@ function loadQuestion() {
     audiencePollContainer.style.display = 'none'; // Hide audience poll when loading a new question
 }
 
-// Option Click Event
 options.forEach(option => {
     option.addEventListener('click', (event) => {
         if (event.target.disabled) return; // Prevent clicking disabled options
@@ -118,18 +117,51 @@ options.forEach(option => {
                     loadQuestion();
                     document.querySelector('.money-ladder ul').children[14 - currentQuestion].classList.add('highlight');
                 } else {
-                    alert('Congratulations! You completed the quiz.');
-                    resetGame();
+                    showCompletionMessage(); // Show the completion message
                 }
             }, 1000);
         } else {
             event.target.classList.add('wrong-animation');
             setTimeout(() => {
                 event.target.classList.remove('wrong-animation');
+                // resetGame(); // Reset the game on wrong answer
             }, 1000);
         }
     });
 });
+
+// Show completion message
+function showCompletionMessage() {
+
+    // Get references to the elements
+    const mainContent = document.getElementById("main-content");
+    const completionMessage = document.getElementById("completion-message");
+
+    // Clone the completionMessage element to make it ready for replacement
+    const newCompletionMessage = completionMessage.cloneNode(true);
+    newCompletionMessage.style.display = "block"; // Make sure it is visible
+
+    // Replace the main-content with the cloned completion-message
+    mainContent.replaceWith(newCompletionMessage);
+
+    // Adding an event listener to the "Learn More" button
+    document.getElementById('learn-more-button').addEventListener('click', () => {
+        window.location.href = 'https://example.com/learn-more'; // Replace with the actual URL
+    });
+}
+
+// function replaceMainContent() {
+//     // Get references to the elements
+//     const mainContent = document.getElementById("main-content");
+//     const completionMessage = document.getElementById("completion-message");
+
+//     // Clone the completionMessage element to make it ready for replacement
+//     const newCompletionMessage = completionMessage.cloneNode(true);
+//     newCompletionMessage.style.display = "block"; // Make sure it is visible
+
+//     // Replace the main-content with the cloned completion-message
+//     mainContent.replaceWith(newCompletionMessage);
+// }
 
 // Implementing 50:50 Lifeline
 fiftyFiftyButton.addEventListener('click', () => {
@@ -188,6 +220,9 @@ audiencePollButton.addEventListener('click', () => {
 startGameButton.addEventListener('click', () => {
     startGameButton.style.display = 'none'; // Hide the start game button
 
+    const audio = document.getElementById('background-music');
+    audio.play();
+
     // Enable lifeline buttons
     fiftyFiftyButton.disabled = false;
     audiencePollButton.disabled = false;
@@ -196,12 +231,10 @@ startGameButton.addEventListener('click', () => {
     });
 
     // Enable answer options
-    options.forEach(option => {
+    document.querySelectorAll('.option').forEach(option => {
         option.disabled = false;
+        option.classList.remove('disabled');
     });
-
-    // Highlight the first level in the money ladder
-    document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
 });
 
 function resetGame() {

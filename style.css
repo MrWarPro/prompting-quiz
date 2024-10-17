@@ -116,8 +116,8 @@ h1 {
 }
 
 .option {
-    background-color: #00264d;
-    color: #f9a602;
+    background: linear-gradient(to bottom, #001F58, #013998);
+    color: white;
     border: 0px solid transparent;
     padding: 15px;
     font-size: 1.1em;
@@ -138,7 +138,7 @@ h1 {
 
 .option:hover {
     background-color: #f9a602;
-    color: #00264d;
+    color: #abc3ea;
     border: 0px solid #f9a602;
 }
 
@@ -201,30 +201,30 @@ h1 {
 
 /* Animations for Correct and Wrong Answers */
 .correct-animation {
-    animation: correctFlash 1s ease, showEmoji 1s steps(1, end) infinite;
+    animation: correctFlash 1s ease;
     position: relative;
 }
 
-.correct-animation::after {
+/* .correct-animation::after {
     content: '🎉';
     position: absolute;
     top: -10px;
     right: -10px;
     font-size: 1.5em;
-}
+} */
 
 .wrong-animation {
-    animation: wrongFlash 1s ease, showWrongEmoji 1s steps(1, end) infinite;
+    animation: wrongShake 1s ease;
     position: relative;
 }
 
-.wrong-animation::after {
+/* .wrong-animation::after {
     content: '😕';
     position: absolute;
     top: -10px;
     right: -10px;
     font-size: 1.5em;
-}
+} */
 
 /* Audience Poll Styling */
 .audience-poll {
@@ -326,38 +326,75 @@ h1 {
     /* Slight depression on click */
 }
 
+.completion-message {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.completion-message h2 {
+    color: #ffd700;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.completion-message p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+#learn-more-button {
+    background-color: #28a745;
+    color: #ffffff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#learn-more-button:hover {
+    background-color: #218838;
+}
 
 @keyframes correctFlash {
     0% {
-        background-color: #00264d;
+        background: #00264d;
     }
 
     50% {
-        background-color: #28a745;
+        background: #28a745;
         color: white;
     }
 
     100% {
-        background-color: #00264d;
+        background: #28a745; /* Keep the background color as green */
+        color: white;
     }
 }
 
 @keyframes wrongShake {
-
     0%,
     100% {
         transform: translateX(0);
+        background: #00264d;
+        color: white;
     }
 
     25% {
         transform: translateX(-10px);
+        background: #ff8c00;
+        color: white;
     }
 
     50% {
         transform: translateX(10px);
-    }
-
-    75% {
-        transform: translateX(-10px);
+        background: #ff8c00;
+        color: white;
     }
 }

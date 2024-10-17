@@ -9,6 +9,15 @@
 </head>
 
 <body>
+  <!-- Background Music Element -->
+  <!-- <audio id="background-music" autoplay loop>
+    <source src="who_wants_to_be_millionaire.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> -->
+  <audio id="background-music" loop>
+    <source src="who_wants_to_be_millionaire.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <div class="game-container">
     <header>
       <h1>Test Your Prompting Skills</h1>
@@ -32,7 +41,7 @@
       </div>
 
       <!-- Question & Answers -->
-      <div class="main-content">
+      <div id="main-content" class="main-content">
         <div class="question-container">
           <p id="question">Which programming language is primarily used for web development?</p>
           <ul class="options">
@@ -93,6 +102,14 @@
           <li>1: €100</li>
         </ul>
       </div>
+
+      <div id="completion-message" class="completion-message" style="display: none;">
+        <h2>Congratulations! You've completed the quiz!</h2>
+        <p>Great job on making it through all the questions. Want to learn and practice your prompting skills even more?
+        </p>
+        <button id="learn-more-button" class="footer-button">Learn and Practice More</button>
+      </div>
+
     </div>
 
     <script src="script.js"></script>
