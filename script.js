@@ -22,6 +22,12 @@ closeShareModal.addEventListener('click', () => {
     shareModal.style.display = 'none';
 });
 
+// Close the start modal when the close button is clicked
+document.getElementById('close-start-modal').addEventListener('click', () => {
+    const startModal = document.getElementById('start-modal');
+    startModal.style.display = 'none';
+});
+
 // Share on Twitter
 twitterShareButton.addEventListener('click', () => {
 
@@ -88,46 +94,51 @@ window.addEventListener('click', (event) => {
     if (event.target === shareModal) {
         shareModal.style.display = 'none';
     }
+
+    const startModal = document.getElementById('start-modal');
+    if (event.target === startModal) {
+        startModal.style.display = 'none';
+    }
 });
 
 let moneyLadder = [
     {
-        "question": "What is a prompt in AI (like ChatGPT)?",
+        "question": "Which prompt would be most effective for generating a marketing slogan for an eco-friendly product?",
         "options": [
-            "A: A command to start a program.",
-            "B: A question or instruction given to AI.",
-            "C: An error message.",
-            "D: A data format."
-        ],
-        "correct": 1
-    },
-    {
-        "question": "How can you make AI give more creative ideas?",
-        "options": [
-            "A: Ask yes/no questions.",
-            "B: Add 'be creative' to your prompt.",
-            "C: Use open-ended questions.",
-            "D: Give no instructions."
+            "A: Write a slogan that is catchy.",
+            "B: Describe the benefits of an eco-friendly product.",
+            "C: Create a slogan that emphasizes sustainability.",
+            "D: Suggest a marketing idea for a new product."
         ],
         "correct": 2
     },
     {
-        "question": "What role helps the AI provide a better response?",
+        "question": "Which prompt is best for generating a step-by-step workout plan for strength training?",
         "options": [
-            "A: Ask as a friend.",
-            "B: Act as an expert in [field].",
-            "C: Act randomly.",
-            "D: Give no context."
+            "A: Suggest a few strength exercises.",
+            "B: Create a plan with exercises, sets, and reps for beginners.",
+            "C: List some workouts for advanced athletes.",
+            "D: Write general tips for staying active."
         ],
         "correct": 1
     },
     {
-        "question": "Which prompt gives a detailed answer?",
+        "question": "How would you prompt an AI to write a technical bug report?",
         "options": [
-            "A: Tell me about the ocean.",
-            "B: Explain why oceans are important for climate regulation.",
-            "C: Say something about water.",
-            "D: Oceans are blue."
+            "A: Generate a bug report including steps to reproduce and the expected outcome.",
+            "B: Write a summary about a software bug.",
+            "C: Describe the software error in detail.",
+            "D: Write a brief note about an issue."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What is the key benefit of using chain-of-thought prompting with LLMs?",
+        "options": [
+            "A: It forces the AI to generate concise answers.",
+            "B: It allows the AI to break down reasoning into intermediate steps.",
+            "C: It asks for only one-word responses.",
+            "D: It makes the response more random."
         ],
         "correct": 1
     },
@@ -135,109 +146,9 @@ let moneyLadder = [
         "question": "What is the best way to get a balanced and informative response on a controversial topic from an AI?",
         "options": [
             "A: Ask for a summary of arguments.",
-            "B: Request only the pros of one side.",
+            "B: Provide both sides of the argument and ask the AI to summarize perspectives.",
             "C: Ignore context and ask a general question.",
-            "D: Provide both sides of the argument and ask the AI to summarize perspectives.",
-        ],
-        "correct": 3
-    },
-    {
-        "question": "How do you get step-by-step answers?",
-        "options": [
-            "A: Say 'Explain in detail'.",
-            "B: Use bullet points.",
-            "C: Ask for a summary.",
-            "D: Say 'Give step-by-step instructions'."
-        ],
-        "correct": 3
-    },
-    {
-        "question": "How can you make an AI response more concise?",
-        "options": [
-            "A: Add 'Be brief' to the prompt.",
-            "B: Ask vague questions.",
-            "C: Give long, complex prompts.",
-            "D: Ignore instructions."
-        ],
-        "correct": 0
-    },
-    {
-        "question": "What is 'iterative prompting'?",
-        "options": [
-            "A: Refining prompts based on responses.",
-            "B: Repeating the same question.",
-            "C: Asking unrelated questions.",
-            "D: Using no prompt at all."
-        ],
-        "correct": 0
-    },
-    {
-        "question": "How do you make AI act like a specific profession?",
-        "options": [
-            "A: Say 'Pretend to be [profession]'.",
-            "B: No need for instructions.",
-            "C: Use only a keyword.",
-            "D: Ask a random question."
-        ],
-        "correct": 0
-    },
-    {
-        "question": "What’s the most effective way to simplify a complex technical topic for an audience with no background knowledge?",
-        "options": [
-            "A: Use detailed, technical jargon.",
-            "B: Ask the AI to use metaphors or analogies to explain the concept.",
-            "C: Provide a summary using industry-specific terms.",
-            "D: Ignore simplifying and present it as is."
-        ],
-        "correct": 1
-    },
-    {
-        "question": "What’s the benefit of adding examples to a prompt?",
-        "options": [
-            "A: Confuses the AI.",
-            "B: Guides AI to give similar responses.",
-            "C: Makes response unpredictable.",
-            "D: No effect at all."
-        ],
-        "correct": 1
-    },
-    {
-        "question": "What is 'role prompting'?",
-        "options": [
-            "A: Asking AI to behave as a specific character.",
-            "B: Using random sentences.",
-            "C: Asking short questions.",
-            "D: Giving no instructions."
-        ],
-        "correct": 0
-    },
-    {
-        "question": "How can you ask AI to provide multiple options?",
-        "options": [
-            "A: Say 'Give me one answer'.",
-            "B: Ask for '5 options' or 'alternatives'.",
-            "C: No prompt at all.",
-            "D: Use only one keyword."
-        ],
-        "correct": 1
-    },
-    {
-        "question": "How can you enhance AI responses when asking for creative solutions?",
-        "options": [
-            "A: Provide detailed constraints to guide creativity.",
-            "B: Keep the prompt very general.",
-            "C: Ask the AI to make no assumptions.",
-            "D: Request a summary of options."
-        ],
-        "correct": 0
-    },
-    {
-        "question": "What is the key benefit of using chain-of-thought prompting with LLMs to solve complex problems?",
-        "options": [
-            "A: It forces the AI to generate concise answers.",
-            "B: It allows the AI to break down reasoning into intermediate steps, improving accuracy.",
-            "C: It asks for only one word responses.",
-            "D: It makes the response more random and creative."
+            "D: Request only the pros of one side."
         ],
         "correct": 1
     }
@@ -269,7 +180,7 @@ options.forEach(option => {
                 currentQuestion++;
                 if (currentQuestion < moneyLadder.length) {
                     loadQuestion();
-                    document.querySelector('.money-ladder ul').children[14 - currentQuestion].classList.add('highlight');
+                    document.querySelector('.money-ladder ul').children[4 - currentQuestion].classList.add('highlight');
                 } else {
                     showCompletionMessage(); // Show the completion message
                 }
@@ -306,7 +217,11 @@ function showCompletionMessage() {
             'value': 1
         });
 
-        window.open('https://forms.gle/Tm2jtogT1PWZE7BF7', '_blank'); // Replace with the actual URL
+        // Show the start modal
+        const startModal = document.getElementById('start-modal');
+        startModal.style.display = 'block';
+
+        // window.open('https://forms.gle/Tm2jtogT1PWZE7BF7', '_blank'); // Replace with the actual URL
     });
 
     // Adding event listener for share button
@@ -449,7 +364,7 @@ function resetGame() {
     document.querySelectorAll('.money-ladder ul li').forEach((li, index) => {
         li.classList.remove('highlight');
     });
-    document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
+    document.querySelector('.money-ladder ul').children[4].classList.add('highlight');
 
     // Reset lifelines
     fiftyFiftyButton.disabled = false; // Enable 50:50 button
@@ -467,4 +382,4 @@ function resetGame() {
 }
 
 loadQuestion();
-document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
+document.querySelector('.money-ladder ul').children[4].classList.add('highlight');
