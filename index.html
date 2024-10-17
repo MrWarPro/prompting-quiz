@@ -7,6 +7,9 @@
   <title>Test Your Prompting Skills</title>
   <link rel="stylesheet" href="style.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z6SKW4KTC"></script>
   <script>
@@ -123,6 +126,29 @@
             <img src="share-icon.svg" alt="Share Icon" />
             Share
           </button>
+        </div>
+      </div>
+
+      <!-- Share Modal -->
+      <div id="share-modal" class="share-modal" style="display: none;">
+        <div class="share-modal-content">
+          <span id="close-share-modal" class="close-share-modal">&times;</span>
+          <h2>Share Now!</h2>
+          <p>Spread the word and let your friends know how well you did!</p>
+          <div class="social-buttons">
+            <button class="social-button twitter" id="twitter-share">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="social-button facebook" id="facebook-share">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="social-button linkedin" id="linkedin-share">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </button>
+            <button class="social-button copy-link" id="copy-link">
+              <i class="fas fa-link"></i> Copy Link
+            </button>
+          </div>
         </div>
       </div>
 

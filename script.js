@@ -9,6 +9,59 @@ const shareButton = document.getElementById('share-button');
 const shareContainer = document.getElementById('share-container');
 let currentQuestion = 0;
 
+// Get modal elements
+const shareModal = document.getElementById('share-modal');
+const closeShareModal = document.getElementById('close-share-modal');
+const twitterShareButton = document.getElementById('twitter-share');
+const facebookShareButton = document.getElementById('facebook-share');
+const linkedinShareButton = document.getElementById('linkedin-share');
+const copyLinkButton = document.getElementById('copy-link');
+
+// Event listener for closing the share modal
+closeShareModal.addEventListener('click', () => {
+    shareModal.style.display = 'none';
+});
+
+// Share on Twitter
+twitterShareButton.addEventListener('click', () => {
+    const shareUrl = window.location.href;
+    const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+    window.open(twitterUrl, '_blank');
+});
+
+// Share on Facebook
+facebookShareButton.addEventListener('click', () => {
+    const shareUrl = window.location.href;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    window.open(facebookUrl, '_blank');
+});
+
+// Share on LinkedIn
+linkedinShareButton.addEventListener('click', () => {
+    const shareUrl = window.location.href;
+    const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
+    const linkedinUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent('Test Your Prompting Skills')}&summary=${encodeURIComponent(shareText)}`;
+    window.open(linkedinUrl, '_blank');
+});
+
+// Copy link to clipboard
+copyLinkButton.addEventListener('click', () => {
+    const shareUrl = window.location.href;
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        alert("Link copied to clipboard!");
+    }).catch(err => {
+        console.error('Could not copy link: ', err);
+    });
+});
+
+// Close the modal if the user clicks outside the modal content
+window.addEventListener('click', (event) => {
+    if (event.target === shareModal) {
+        shareModal.style.display = 'none';
+    }
+});
+
 let moneyLadder = [
     {
         "question": "What is a prompt in AI (like ChatGPT)?",
@@ -225,23 +278,25 @@ function showCompletionMessage() {
     // Adding event listener for share button
     const newShareButton = document.getElementById('share-button');
     newShareButton.addEventListener('click', () => {
-        const shareUrl = window.location.href;
-        const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
 
-        // Check if Web Share API is supported
-        if (navigator.share) {
-            navigator.share({
-                title: 'Test Your Prompting Skills',
-                text: shareText,
-                url: shareUrl,
-            })
-                .then(() => console.log('Thanks for sharing!'))
-                .catch((error) => console.error('Error sharing:', error));
-        } else {
-            // Fallback for non-supporting browsers
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-            window.open(twitterUrl, '_blank');
-        }
+        shareModal.style.display = 'block';
+        // const shareUrl = window.location.href;
+        // const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
+
+        // // Check if Web Share API is supported
+        // if (navigator.share) {
+        //     navigator.share({
+        //         title: 'Test Your Prompting Skills',
+        //         text: shareText,
+        //         url: shareUrl,
+        //     })
+        //         .then(() => console.log('Thanks for sharing!'))
+        //         .catch((error) => console.error('Error sharing:', error));
+        // } else {
+        //     // Fallback for non-supporting browsers
+        //     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        //     window.open(twitterUrl, '_blank');
+        // }
     });
 }
 
