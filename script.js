@@ -2,6 +2,7 @@ const startGameButton = document.getElementById('start-game');
 const questionElement = document.getElementById('question');
 const options = document.querySelectorAll('.option');
 const fiftyFiftyButton = document.getElementById('fifty-fifty');
+const callFriendButton = document.getElementById('call-friend');
 const audiencePollButton = document.getElementById('ask-audience');
 const audiencePollContainer = document.getElementById('audience-poll');
 let currentQuestion = 0;
@@ -248,6 +249,19 @@ fiftyFiftyButton.addEventListener('click', () => {
     fiftyFiftyButton.classList.add('disabled');
 });
 
+// // Implementing Call a Friend Lifeline
+// callFriendButton.addEventListener('click', () => {
+//     if (callFriendButton.disabled) return;
+
+//     let correctIndex = moneyLadder[currentQuestion].correct;
+//     let friendResponse = `I think the answer is ${String.fromCharCode(65 + correctIndex)}.`;
+
+//     alert(friendResponse);
+
+//     callFriendButton.disabled = true; // Disable the button after use
+//     callFriendButton.classList.add('disabled');
+// });
+
 // Implementing Ask the Audience Lifeline
 audiencePollButton.addEventListener('click', () => {
     if (audiencePollButton.disabled) return;
@@ -339,3 +353,10 @@ function resetGame() {
 
 loadQuestion();
 document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
+document.getElementById("learn-more-button").addEventListener("click", function () {
+    gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'Learn More',
+        'value': 1
+    });
+});
