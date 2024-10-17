@@ -24,6 +24,13 @@ closeShareModal.addEventListener('click', () => {
 
 // Share on Twitter
 twitterShareButton.addEventListener('click', () => {
+
+    gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'Twitter Share',
+        'value': 1
+    });
+
     const shareUrl = window.location.href;
     const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
@@ -32,6 +39,13 @@ twitterShareButton.addEventListener('click', () => {
 
 // Share on Facebook
 facebookShareButton.addEventListener('click', () => {
+
+    gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'Facebook Share',
+        'value': 1
+    });
+
     const shareUrl = window.location.href;
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
     window.open(facebookUrl, '_blank');
@@ -39,6 +53,13 @@ facebookShareButton.addEventListener('click', () => {
 
 // Share on LinkedIn
 linkedinShareButton.addEventListener('click', () => {
+
+    gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'LinkedIn Share',
+        'value': 1
+    });
+
     const shareUrl = window.location.href;
     const shareText = "I just completed the 'Test Your Prompting Skills' game! Play now: ";
     const linkedinUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent('Test Your Prompting Skills')}&summary=${encodeURIComponent(shareText)}`;
@@ -47,6 +68,13 @@ linkedinShareButton.addEventListener('click', () => {
 
 // Copy link to clipboard
 copyLinkButton.addEventListener('click', () => {
+
+    gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'Copy Link',
+        'value': 1
+    });
+
     const shareUrl = window.location.href;
     navigator.clipboard.writeText(shareUrl).then(() => {
         alert("Link copied to clipboard!");
@@ -272,6 +300,12 @@ function showCompletionMessage() {
 
     // Adding an event listener to the "Learn More" button
     document.getElementById('learn-more-button').addEventListener('click', () => {
+        gtag('event', 'click', {
+            'event_category': 'Button',
+            'event_label': 'Learn More',
+            'value': 1
+        });
+
         window.open('https://forms.gle/Tm2jtogT1PWZE7BF7', '_blank'); // Replace with the actual URL
     });
 
@@ -434,10 +468,3 @@ function resetGame() {
 
 loadQuestion();
 document.querySelector('.money-ladder ul').children[14].classList.add('highlight');
-document.getElementById("learn-more-button").addEventListener("click", function () {
-    gtag('event', 'click', {
-        'event_category': 'Button',
-        'event_label': 'Learn More',
-        'value': 1
-    });
-});
